@@ -3,5 +3,25 @@
         <h1>
             Faca o login
         </h1>
+
+        <section class="mt-4">
+            <form action="/login" method="POST">
+                @csrf
+
+                <input type="email" name="email" placeholder="Email" class="bg-white p-2 border-2 border-black">
+                <input type="password" name="password" placeholder="Senha" 
+                class="bg-white p-2 border-2 border-black">
+                <button type="submit" class="bg-white p-2 border-2 border-black">
+                    Entrar
+                </button>
+            </form>
+            <div>
+                @error('email')
+                    <p class="text-red-500 text-xs mt-1">
+                        {{ $message }}
+                    </p>
+                @enderror
+            </div>
+        </section>
     </main>
 </x-layout>
